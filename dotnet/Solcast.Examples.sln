@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solcast.Examples", "Solcast.Examples\Solcast.Examples.csproj", "{49C624B2-AE9D-48BF-A425-F4C7215C924F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{49C624B2-AE9D-48BF-A425-F4C7215C924F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49C624B2-AE9D-48BF-A425-F4C7215C924F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49C624B2-AE9D-48BF-A425-F4C7215C924F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49C624B2-AE9D-48BF-A425-F4C7215C924F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

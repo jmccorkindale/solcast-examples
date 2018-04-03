@@ -1,1 +1,4 @@
 .idea/*
+dotnet/.idea*
+dotnet/Solcast.Examples/bin/*
+dotnet/Solcast.Examples/obj/*
