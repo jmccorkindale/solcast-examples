@@ -33,7 +33,7 @@ class RooftopSite:
             }
         }
         """
-        return json.dump('{{ "site": {} }}', default=lambda x: x.__dict__)
+        return str.format('{{ "site": {} }}', json.dump(self, default=lambda x: x.__dict__))
 
 
 def add_rooftop_to_solcast(rooftop: RooftopSite) -> requests.Response:
