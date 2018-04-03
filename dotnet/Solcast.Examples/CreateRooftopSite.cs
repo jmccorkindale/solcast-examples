@@ -6,24 +6,14 @@ using Newtonsoft.Json;
 
 namespace Solcast.Examples
 {
-    public class CreateRooftopSite
-    {
-        public async Task<string> Run()
-        {
-            var API_KEY = "[insert your api key here]";
-            var SOLCAST_API_URL = "https://api.solcast.com.au/rooftop_sites";
-            
-            var site = new RooftopSite("My Site", -149.117, 35.2);
-            var client = new CreateRooftopSiteClient(API_KEY, SOLCAST_API_URL);
-
-            var response = await client.PostAsync(site);
-
-            response.EnsureSuccessStatusCode();
-
-            return await response.Content.ReadAsStringAsync();
-        }
-    }
-
+    /// <summary>
+    /// To send rooftop sites to the Solcast API, the following attributes need to present in the payload:
+    ///     - name: a friendly name of the rooftop site
+    ///     - longitude: the longitude of the rooftop site
+    ///     - latitude: the latitude of the rooftop site
+    ///     - azimuth (optional): azimuth of the rooftop site (180 to -180) where 0 is North
+    ///     - tilt (optional): tilt of the rooftop site (0 to 90) where 0 is flat.
+    /// </summary>
     public class RooftopSite
     {   
         public RooftopSite(string name, double longitude, double latitude, double? azimuth = null, double? tilt = null)
@@ -51,6 +41,9 @@ namespace Solcast.Examples
         public double? Tilt { get; }
     }
 
+    /// <summary>
+    /// Converts the rooftop site to a json string and performs an asynchronous post request to the Solcast API.
+    /// </summary>
     public class CreateRooftopSiteClient
     {
         private readonly string ApiKey;
@@ -76,6 +69,24 @@ namespace Solcast.Examples
 
                 return await client.PostAsync($"{Url}?format=json&api_key={ApiKey}", content);
             }
+        }
+    }
+    
+    public class CreateRooftopSite
+    {
+        public async Task<string> Run()
+        {
+            var API_KEY = "[insert your api key here]";
+            var SOLCAST_API_URL = "https://api.solcast.com.au/rooftop_sites";
+            
+            var site = new RooftopSite("My Site", -149.117, 35.2);
+            var client = new CreateRooftopSiteClient(API_KEY, SOLCAST_API_URL);
+
+            var response = await client.PostAsync(site);
+
+            response.EnsureSuccessStatusCode();
+
+            return await response.Content.ReadAsStringAsync();
         }
     }
 }
